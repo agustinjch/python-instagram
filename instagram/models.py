@@ -90,11 +90,9 @@ class Media(ApiModel):
             new_media.user_has_liked = entry['user_has_liked']
         new_media.like_count = entry['likes']['count']
         new_media.likes = []
-        if 'data' in entry['likes']:
-            for like in entry['likes']['data']:
-                new_media.likes.append(User.object_from_dictionary(like))
+        
 
-        new_media.comment_count = entry['comments']['count']
+        
         new_media.comments = []
         if 'data' in entry['comments']:
             for comment in entry['comments']['data']:
